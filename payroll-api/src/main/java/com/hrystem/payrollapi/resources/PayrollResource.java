@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hrystem.payrollapi.domain.Payroll;
-import com.hrystem.payrollapi.domain.User;
-import com.hrystem.payrollapi.feignClientes.UserFeign;
+import com.hrystem.payrollapi.services.PayrollService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,19 +17,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PayrollResource {
 
-    private final UserFeign userFeign;
+    private final PayrollService service;
 
     @GetMapping(value = "/{workerId}")
     public ResponseEntity<Payroll> getPayment(@PathVariable Long workerId, @RequestBody Payroll payment) {
-
-        User user = userFeign.findById(workerId).getBody();
-
-        return ResponseEntity.ok().body(
-                new Payroll(
-                        user.getName(),
-                        payment.getDescription(),
-                        user.getHourlyPrice(),
-                        payment.getWorkedHours(),
-                        user.getHourlyPrice() * payment.getWorkedHours()));
+        return ResponseEntity.ok().body(service.getPayment(workerId, payment));
     }
 }
