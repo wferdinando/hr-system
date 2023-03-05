@@ -1,4 +1,4 @@
-package com.hrystem.payrollapi.payrollapi.domain;
+package com.hrystem.payrollapi.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

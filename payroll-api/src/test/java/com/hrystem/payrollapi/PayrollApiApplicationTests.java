@@ -1,4 +1,4 @@
-package com.hrystem.payrollapi.payrollapi;
+package com.hrystem.payrollapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
