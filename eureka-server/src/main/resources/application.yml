@@ -5,5 +5,5 @@ server:
     port: ${PORT:8761}
 eureka:
     client:
-    register-with-eureka: false
-    fetch-registry: false
+        register-with-eureka: false
+        fetch-registry: false
