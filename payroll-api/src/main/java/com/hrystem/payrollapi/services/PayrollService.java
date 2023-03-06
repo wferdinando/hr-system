@@ -6,7 +6,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.hrystem.payrollapi.domain.Payroll;
-import com.hrystem.payrollapi.feignClientes.UserFeign;
+import com.hrystem.payrollapi.feignClients.UserFeign;
 import com.hrystem.payrollapi.services.exceptions.ObjectNotFoundException;
 
 import feign.FeignException;
@@ -22,7 +22,7 @@ public class PayrollService {
   private final UserFeign feign;
 
   public Payroll getPayment(Long workedId, Payroll payroll) {
-    log.info("PAYROLL_SERCIE ::: Get request on " + env.getProperty("local.server.port") + " port");
+    log.info("PAYROLL_SERVICE ::: Get request on " + env.getProperty("local.server.port") + " port");
     try {
       var user = feign.findById(workedId).getBody();
 

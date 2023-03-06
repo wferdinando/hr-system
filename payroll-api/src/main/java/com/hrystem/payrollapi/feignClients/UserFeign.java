@@ -1,4 +1,4 @@
-package com.hrystem.payrollapi.feignClientes;
+package com.hrystem.payrollapi.feignClients;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.hrystem.payrollapi.domain.User;
 
-@FeignClient(name = "user-api", url = "http://localhost:8000")
+@FeignClient(name = "user-api")
 public interface UserFeign {
     
     @GetMapping(value = "/api/users/{id}")

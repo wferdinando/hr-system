@@ -3,3 +3,7 @@ server:
 spring:
     application:
         name: user-api
+eureka:
+    cliente:
+        service-url:
+            default-zone: ${EUREKA_URL:http://localhost:8761/eureka}
